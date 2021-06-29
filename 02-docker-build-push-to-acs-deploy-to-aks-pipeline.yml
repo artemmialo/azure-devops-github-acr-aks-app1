@@ -52,7 +52,7 @@ stages:
 
   jobs:
   - deployment: Deploy
-    condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
+    condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/heads/feature')))
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
@@ -82,7 +82,7 @@ stages:
 
   - deployment: DeployPullRequest
     displayName: Deploy Pull request
-    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/feature'))
     pool:
       vmImage: $(vmImageName)
 
