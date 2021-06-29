@@ -10,19 +10,19 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '4ee05316-45b2-4c65-9574-a13237e77eb4'
-  imageRepository: 'app1/app1nginx'
-  containerRegistry: 'aksdevopsacr.azurecr.io'
+  dockerRegistryServiceConnection: 'e6aa055e-76d0-4f31-8f36-ffa537feb8ec'
+  imageRepository: 'app1nginx'
+  containerRegistry: 'acrstacksimplify.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
-  
+
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
 stages:
 - stage: Build
   displayName: Build and push stage
-  jobs:  
+  jobs:
   - job: Build
     displayName: Build
     pool:
